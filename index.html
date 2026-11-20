@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleo's Spa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="wrap">
+            <nav>
+                <a class="logo" href="#top">Kleo's Spa</a>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#book">Book</a></li>
+                    </ul>
+                    <button id="themeToggle" class="theme-btn" type="button">Dark mode</button>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main id="top">
+        <!-- Hero Section -->
+         <div class="wrap hero">
+            <div class="breath" aria-hidden="true"></div>
+            <h1>Slow down. Breathe out.</h1>
+            <p>A quiet place for massage, facial, and warm-stone therapy, in the middle of a busy week.</p>
+            <a class="btn" href="#book">Book a Visit</a>
+         </div>
+    
+
+      <section id="services"> 
+        <div class="wrap">
+            <h2>Our Treatments</h2>
+            <p class="intro">Each session starts with tea and a short chat about what your body needs today.</p>
+            <div class="cards">
+               <div class="card" data-name="Deep tissue massage" data-price="500">
+                  <h3>Deep tissue massage</h3>
+                  <p>Relieve muscle tension and improve circulation with our deep tissue massage.</p>
+                  <span class="price">60min - 500gh</span>
+                  <button class="choose" type="button">Choose</button>
+               </div>
+
+                <div class="card" data-name="Hydrating facial" data-price="450">        
+                    <h3>Hydrating facial</h3>
+                    <p>Replenish your skin's moisture and achieve a radiant glow with our hydrating facial.</p>
+                    <span class="price">45min - 450gh</span>
+                    <button class="choose" type="button">Choose</button>
+
+                </div>
+
+                <div class="card" data-name="Warm stone therapy" data-price="600">
+                    <h3>Warm stone therapy</h3>
+                    <p>Experience deep relaxation and pain relief with our warm stone therapy.</p>
+                    <span class="price">75min - 600gh</span>
+                    <button class="choose" type="button">Choose</button>
+                   
+                </div>
+
+                <div class="card" data-name="Chemical peels" data-price="1200">
+                    <h3>Chemical peels</h3>
+                    <p>Revitalize your skin and reduce the appearance of fine lines with our chemical peels.</p>
+                    <span class="price">30min - 1200gh</span>
+                    <button class="choose" type="button">Choose</button>
+                </div>
+
+                <div class="card" data-name="Micro needling" data-price="1000">
+                    <h3>Micro needling</h3>
+                    <p>Improve appearance of acne scars, finelines, enlarge pores, uneven skin texture.</p>
+                    <span class="price">30min - 1000gh</span>
+                    <button class="choose" type="button">Choose</button>
+                </div>
+            </div>
+        </div>
+       </section>
+
+     <!--BOOKINHG FORM  -->
+      <section id="book" class="book">
+        <div class="wrap">
+             <h2>Book a Visit</h2>
+             <p class="intro">Please fill out the form below to schedule your appointment.</p>
+            <form id="bookingForm" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="treatment">Treatment:</label>
+                <select id="treatment" name="treatment" required>
+                    <option value="">Select a treatment</option>
+                    <option value="Deep tissue massage">Deep tissue massage</option>
+                    <option value="Hydrating facial">Hydrating facial</option>
+                    <option value="Warm stone therapy">Warm stone therapy</option>
+                    <option value="Chemical peels">Chemical peels</option>
+                    <option value="Micro needling">Micro needling</option>
+                </select>
+
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+                <p id="summary" class="summary" aria-live="polite"></p>
+
+                <button class="btn" type="submit">Submit</button>
+                <p id="message" role="status"></p>
+            </form>
+           </div>
+       </section>
+    </main>
+    <footer>
+        <div class="wrap">
+            <p>&copy; 2024 Kleo's Spa. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

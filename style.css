@@ -1,0 +1,335 @@
+/* COLORS AND FONTS */
+:root {
+    --bg: #eef3f0;
+    --surface: #ffffff;
+    --muted: #55706c;
+    --accent: #2f6f66;
+    --accent-text: #ffffff;
+    --line: #cfdcd7;
+    --heading: "fraunces", Georgia, serif;
+    --text: #1d3331;
+    --body: "DM Sans", system-ui, sans-serif;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #11201f;
+        --surface: #182b29;
+        --text: #e6efec;
+        --muted: #9db8b2;
+        --accent: #7fc4b7;
+        --accent-text: #0e1d1b;
+        --line: #2b423f;
+
+    }
+
+}
+
+:root[data-theme="dark"] {
+    --bg: #11201f;
+    --surface: #182b29;
+    --text: #e6efec;
+    --muted: #9db8b2;
+    --accent: #7fc4b7;
+    --accent-text: #0e1d1b;
+    --line: #2b423f;
+}
+
+/* BASIC RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    line-height: 1.6;
+}
+h1, h2, h3{
+    font-family: var(--heading);
+    font-weight: 600; 
+    line-height: 1.15;
+}
+a {
+    color: inherit;
+}
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* A reusable "box" that keeps content centered and not to wide */
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* NAVIGATION */
+header {
+    border-bottom: 1px solid var(--line);
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+
+}
+
+.logo {
+    font-family: var(--heading);
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--muted);
+    padding: 1rem;
+    line-height: 1;
+    display: block;
+
+}
+
+nav ul a:hover {
+    color: var(--text);
+}
+
+/* HERO(TOP SECTION) */
+.hero {
+    text-align: center;
+    padding: 4.5rem 0 4rem;
+}
+
+.hero h1 {
+     font-size: clamp(2.2rem, 7vw, 4rem);
+     max-width: 14ch;
+     margin: 1.5rem auto 1rem;
+}
+
+.hero p{
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 auto 2rem;
+}
+
+/* THE BREATHING CIRCLE: THE ONE ANIMATED THING ON THE PAGE */
+
+.breath {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--accent), transparent 75%);
+    border: 2px solid var(--accent);
+    animation: breathe 8s ease-in-out infinite;
+
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .breath {
+        animation: none;
+    }
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-text);
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 9999px;
+    border: 0;
+    font: 500 1rem var(--body);
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.88;
+}
+
+/* SERVICES */
+section { padding: 3.5rem 0; }
+section h2 {
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    margin-bottom: 0.5rem;
+}
+
+.intro {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 55ch;
+}
+
+/* CSS GRID */
+.cards { 
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+ 
+.card h3{
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+}
+
+.card p{
+    color: var(--muted);
+}
+
+.price{
+    display:block;
+    margin-top: 1rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+/* BOOKING FORM */
+
+.book{
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+    max-width: 460px;
+}
+
+label {
+    display: grid;
+    gap: 0.3rem;
+    font-weight: 500;
+}
+
+input, select{
+    font: inherit;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--text);
+}
+
+#message {
+    font-weight: 500;
+    color: var(--accent);
+    min-height: 1.5rem;
+}
+
+footer {
+    padding: 2rem 0; 
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* INTERACTIVE EXTRAS */
+
+/* Smooth scrolling when a link or button jumps to another section */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* light/dark mode button in the menu */
+
+.theme-btn {
+    font: 500 0.9rem var(--body);
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+
+}
+
+.theme-btn:hover {
+    border-color: var(--accent);
+}
+
+.card {
+    display: flex;
+     flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    
+}
+
+.card.selected {
+    border-color: var(--accent); box-shadow:0 0 0 2px var(--accent);
+}
+
+.choose {
+    margin-top: 0.9rem; 
+    align-self: flex-start;
+    font: 500 0.95rem var(--body);
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 0.45rem 1.1rem; cursor: pointer;
+
+
+}
+
+.choose:hover {
+    background: var(--accent); 
+    color: var(--accent-text);
+}
+
+/* The live summary box above the booking button */
+
+.summary {
+    padding: 0.8rem 1rem;
+    border-left: 4px solid var(--accent);
+    background: var(--bg);
+    border-radius: 6px;
+}
